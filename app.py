@@ -479,14 +479,14 @@ if ChkCandleStock  or ChkInfo or ChkData or chkBB or chkMFT or chkMA or chkPredi
              st.markdown('unexpected error')
              raise             
         try:            
-            st.sidebar.success("Now you can see " + TickerSymbol + " info")        
-            
-            
-            #tickerDf  = tickerData.history(period="max")
-            tickerDf = yf.download(TickerSymbol,start=start_date,end=end_date,interval='1d',period="max" )
+            st.sidebar.success("Now you can see " + TickerSymbol + " info")                  
+                        
+            ##########tickerDf = yf.download(TickerSymbol,start=start_date,end=end_date,interval='1d',period="max" )
             #tickerDf = yf.download(TickerSymbol,start='2022-01-01',end='2022-01-11',interval='1d',period="max" )
            # tickerDf =yf.download('AAPL', start='2019-01-01',  end='2021-06-12',     progress=False,)
-           # set_page_title("asghar")
+            t=yf.Ticker(TickerSymbol)
+            tickerDf = t.history(start=start_date,end=end_date,interval='1d',period="max" )
+            tickerDf['Adj Close']=tickerDf['Close']
             
             tickerDf= DateCorrection(tickerDf,start_date,end_date)
         except:
