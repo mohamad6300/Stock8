@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Jun 17 18:10:39 2021
-
 @author: Mohamad Ahmadabadi 
 """
 # -------------------------------------------------------------------- import library
